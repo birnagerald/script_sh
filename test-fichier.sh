@@ -4,8 +4,12 @@ then
 if [ -d "$1" ] #Vérifie si le paramètre est bien un dossier
 	then
 	echo "$1 est un répertoire qui existe"
-	elif [ -e "$1" ]		#Sinon, vérifie que le paramètre correspond bien à un fichier
-	then echo "$1 est un fichier qui existe"	
+	elif [ -e "$1" ]	#Sinon, vérifie que le paramètre correspond bien à un fichier
+	then echo "$1 est un fichier qui existe"
+		if [ -s "$1" ]
+			then echo "$1 n'est pas vide"
+			else echo "$1 est vide"
+		fi
 	else
 	echo "Ce fichier n'existe pas" #Sinon, renvoie une erreur
 	fi
